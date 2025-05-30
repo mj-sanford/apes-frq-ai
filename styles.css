@@ -1,0 +1,248 @@
+/* Base Reset + Typography */
+
+body {
+  background-color: #fff;
+  background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #fff 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0,10px 10px;
+  @apply font-sans antialiased bg-background text-foreground;
+  font-family : 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  color: #0f172a;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Landing Page */
+#landingPage {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+#landingPage h1 {
+  font-size: 3rem;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+#landingPage p {
+  font-size: 1.25rem;
+  color: #374151;
+}
+
+/* Header */
+header {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1.5rem 2rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #d97706;
+  display: flex;
+  justify-content: center;
+  letter-spacing: -0.03em;
+}
+
+/* Layout Container */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 4rem auto;
+  gap: 2.5rem;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Prompt Card */
+#promptCard {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+}
+
+#promptCard h2 {
+  color: #2563eb;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#prompt {
+  font-size: 1.125rem;
+  color: #334155;
+  margin-bottom: 1.25rem;
+}
+
+#newPromptBtn {
+  align-self: flex-start;
+  background: none;
+  color: #2563eb;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+/* Answer Card */
+#answerCard {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+}
+
+#answerCard label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#answer {
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  resize: vertical;
+  min-height: 200px;
+  margin-bottom: 1.5rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#answer:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+#submitBtn {
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+#submitBtn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 10px 25px rgba(29, 78, 216, 0.4);
+}
+
+#submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Modal */
+#scoreModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+#scoreModal.show {
+  display: flex;
+}
+
+#scoreCard {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  width: 90%;
+  max-width: 460px;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.3);
+}
+
+#scoreCard.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#scoreCard h3 {
+  color: #2563eb;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+#scoreText {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+#scoreText a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+#scoreText a:hover {
+  color: #1d4ed8;
+}
+
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: white;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.2);
+  display: none;
+}
+
+#toast.animate-fade-in {
+  display: block;
+  animation: fade-in 0.3s ease;
+}
+
+/* Footer */
+footer {
+  background-color: #fff;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
